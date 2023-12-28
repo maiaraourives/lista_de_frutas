@@ -5,8 +5,8 @@ class CardItens extends StatelessWidget {
   const CardItens({
     required this.title,
     required this.svgPath,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });0
 
   final String title;
   final String? svgPath;
@@ -33,7 +33,7 @@ class CardItens extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                     radius: 30,
                     child: SvgPicture.asset(
-                      svgPath ?? 'caminho_svg_padrao', // Forneça um caminho padrão ou trate o caso nulo
+                      svgPath!,
                       fit: BoxFit.fill,
                     ),
                   ),
