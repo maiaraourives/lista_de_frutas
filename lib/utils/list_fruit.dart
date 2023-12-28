@@ -1,7 +1,7 @@
 import '../configs/assets/assets_path.dart';
 import '../models/frutas_model.dart';
 
-List<FrutaModel> fruitList = [
+List<FrutaModel> listaFrutas = [
   FrutaModel(title: 'Abacaxi', iconPath: AssetsPath.ABACAXI),
   FrutaModel(title: 'Banana', iconPath: AssetsPath.BANANA),
   FrutaModel(title: 'Laranja', iconPath: AssetsPath.LARANJA),

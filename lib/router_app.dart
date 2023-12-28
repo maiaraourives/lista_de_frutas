@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:lista_movivel/configs/routes/local_routes.dart';
 import 'package:lista_movivel/views/home/home_view.dart';
+import 'package:lista_movivel/views/salva-banco-dados/salva_banco_dados.dart';
+import 'package:lista_movivel/views/salva-shared-preferences/salva_shared_preferences.dart';
 import 'package:lista_movivel/widgets/cs_app_bar.dart';
 import 'package:lista_movivel/widgets/nenhuma_informacao.dart';
 
@@ -17,6 +19,18 @@ class RouterApp {
           settings: settings,
         );
 
+      case LocalRoutes.SALVA_BANCO_DADOS:
+        return _PageBuilder(
+          child: const SalvaBancoDados(),
+          settings: settings,
+        );
+
+      case LocalRoutes.SALVA_SHARED_PREFERENCES:
+        return _PageBuilder(
+          child: const SalvaSharedPreferences(),
+          settings: settings,
+        );
+
       default:
         return _PageBuilder(
           child: const _RotaInexistenteView(),
@@ -27,7 +41,6 @@ class RouterApp {
 }
 
 class _PageBuilder extends PageRouteBuilder {
-  ///Responsável pelo efeito de 'fade transition' entre as transições de telas
   _PageBuilder({
     required this.child,
     required this.settings,
@@ -35,23 +48,6 @@ class _PageBuilder extends PageRouteBuilder {
           settings: settings,
           transitionDuration: const Duration(milliseconds: 500),
           reverseTransitionDuration: const Duration(milliseconds: 100),
-          // transitionsBuilder: (context, animation, secAnimation, child) {
-          //   MediaQueryData data = MediaQuery.of(context);
-
-          //   return GestureDetector(
-          //     onTap: () => FocusScope.of(context).unfocus(),
-          //     child: Observer(
-          //       builder: (_) {
-          //         return MediaQuery(
-          //           data: data.copyWith(
-          //             alwaysUse24HourFormat: true,
-          //           ),
-          //           child: child,
-          //         );
-          //       },
-          //     ),
-          //   );
-          // },
           pageBuilder: (context, animation, secAnimation) => child,
         );
 
@@ -74,14 +70,14 @@ class _RotaInexistenteView extends StatelessWidget {
           child: NenhumaInformacao(
             Image.network('https://thecolor.blog/wp-content/uploads/2021/10/GIF-1.gif', width: double.maxFinite, height: 400),
             message: 'Desculpe, a página que você está procurando não foi encontrada. Relate o seu problema abrindo um chamado no botão abaixo!',
-            // actions: [
-            //   CsElevatedButton(
-            //     height: 35,
-            //     width: MediaQuery.of(context).size.width * 0.8,
-            //     label: 'Abrir chamado',
-            //     onPressed: () {},
-            //   ),
-            // ],
+            actions: [
+              CsElevatedButton(
+                height: 35,
+                width: MediaQuery.of(context).size.width * 0.8,
+                label: 'Abrir chamado',
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ),
