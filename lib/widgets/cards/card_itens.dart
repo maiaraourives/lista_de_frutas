@@ -6,7 +6,7 @@ class CardItens extends StatelessWidget {
     required this.title,
     required this.svgPath,
     super.key,
-  });0
+  });
 
   final String title;
   final String? svgPath;
