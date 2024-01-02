@@ -1,4 +1,4 @@
-class TablePaciente {
+class TableFruta {
   static const tableName = 'frutas';
 
   ///[INTEGER] - PK
