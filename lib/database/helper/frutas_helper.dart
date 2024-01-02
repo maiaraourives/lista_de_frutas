@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 import '../../models/frutas_model_database.dart';
-import '../tables/lista_table.dart';
+import '../tables/fruta_table.dart';
 
 class FrutasDatabaseHelper {
   Future<Database> _openDatabase() async {
